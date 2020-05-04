@@ -5,9 +5,8 @@ import { Icon } from 'react-native-elements';
 import styled from 'styled-components';
 
 import { colors, normalize, fonts } from 'config';
-import { isIphoneX } from 'utils';
 
-const STICKY_HEADER_HEIGHT = isIphoneX() ? 76 : 62;
+const STICKY_HEADER_HEIGHT = 44;
 
 type Props = {
   renderContent: any,
@@ -62,8 +61,8 @@ export class ParallaxScroll extends Component {
 
   state: State;
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       parallaxHeaderHeight: this.getParallaxHeaderHeight(),
     };

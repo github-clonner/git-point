@@ -49,8 +49,8 @@ export class ImageZoom extends Component {
     style: Object,
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       imgZoom: false,
       imgFailed: false,
@@ -75,7 +75,7 @@ export class ImageZoom extends Component {
       return (
         <Modal
           nativeId="image-zoom-modal"
-          animationType={'fade'}
+          animationType="fade"
           onRequestClose={this.closeModal}
         >
           <ModalContainer>

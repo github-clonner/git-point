@@ -780,6 +780,97 @@
         "code",
         "test"
       ]
+    },
+    {
+      "login": "whitedogg13",
+      "name": "Richie",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10307875?v=4",
+      "profile": "https://github.com/whitedogg13",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "MarioArnt",
+      "name": "Mario Arnautou",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10983824?v=4",
+      "profile": "http://mario.arnautou.fr/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "SpaceLenore",
+      "name": "Lenore",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/31237758?v=4",
+      "profile": "https://github.com/SpaceLenore",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "geeofree",
+      "name": "Geo Galagaran",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17492631?v=4",
+      "profile": "http://geeofree.github.io",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "cobisimo",
+      "name": "Никола Радовановић (Nikola Radovanović)",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2192460?v=4",
+      "profile": "http://www.toptal.com/resume/nikola-radovanovic",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "ooHAoo",
+      "name": "Huda Al Dallal",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/26858034?s=400&u=fd8893b7f81dd9c9baeaf2807a1f7f98db0b2fe2&v=4",
+      "profile": "https://github.com/ooHAoo",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "TFarla",
+      "name": "Thomas Farla",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/4613944?v=4",
+      "profile": "https://ilearned.today",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "olegkorol",
+      "name": "Oleg Korol",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/13587499?v=4",
+      "profile": "https://github.com/olegkorol",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "samuelmeuli",
+      "name": "Samuel Meuli",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/22477950?v=4",
+      "profile": "https://samuelmeuli.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "GisliNielsen",
+      "name": "Gisli Nielsen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/17725274?v=4",
+      "profile": "https://github.com/GisliNielsen",
+      "contributions": [
+        "translation"
+      ]
     }
-  ]
+  ],
+  "repoType": "github"
 }

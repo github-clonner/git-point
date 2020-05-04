@@ -2,11 +2,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { ActivityIndicator, Linking, WebView, Platform } from 'react-native';
+import { ActivityIndicator, Linking, Platform } from 'react-native';
+import { WebView } from 'react-native-webview';
 import { Button, Icon } from 'react-native-elements';
 import Swiper from 'react-native-swiper';
 import queryString from 'query-string';
 import CookieManager from 'react-native-cookies';
+import { SafeAreaView } from 'react-navigation';
 
 import { ViewContainer, ErrorScreen } from 'components';
 import { colors, fonts, normalize } from 'config';
@@ -41,8 +43,17 @@ const Modal = styled.Modal`
 
 const ModalWrapper = styled.View`
   flex: 1;
-  padding-top: 20;
-  background-color: #1f2327;
+  background-color: ${colors.githubDark}
+`;
+
+// https://github.com/facebook/react-native/issues/9090
+const StyledSafeAreaView = styled(SafeAreaView).attrs({
+  forceInset: Platform.select({
+    ios: { top: 'always', bottom: 'never' },
+    android: { top: 'never', bottom: 'never' },
+  }),
+})`
+  background-color: ${colors.githubDark};
 `;
 
 const Slide = styled.View`
@@ -174,15 +185,15 @@ class Login extends Component {
     navigation: Object,
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       code: null,
       modalVisible: false,
       cancelDisabled: false,
       showLoader: true,
-      loaderText: t('Connecting to GitHub...', this.locale),
+      loaderText: t('Connecting to GitHub...', props.locale),
       asyncStorageChecked: false,
     };
   }
@@ -234,13 +245,13 @@ class Login extends Component {
     if (url && url.substring(0, 11) === 'gitpoint://') {
       const [, queryStringFromUrl] = url.match(/\?(.*)/);
       const { state, code } = queryString.parse(queryStringFromUrl);
-      const { auth, getUser, navigation } = this.props;
+      const { auth, getUser, navigation, locale } = this.props;
 
       if (stateRandom === state) {
         this.setState({
           code,
           showLoader: true,
-          loaderText: t('Preparing GitPoint...', this.locale),
+          loaderText: t('Preparing GitPoint...', locale),
         });
 
         stateRandom = Math.random().toString();
@@ -285,9 +296,7 @@ class Login extends Component {
           >
             <SlideWelcome>
               <GitPointLogo />
-              <SlideTitle>
-                 {t('Welcome to GitPoint', locale)}
-              </SlideTitle>
+              <SlideTitle>{t('Welcome to GitPoint', locale)}</SlideTitle>
               <SlideText>
                 {t(
                   'One of the most feature-rich GitHub clients that is 100% free',
@@ -297,9 +306,7 @@ class Login extends Component {
             </SlideWelcome>
             <SlideNotifications>
               <SlideIcon name="bell" />
-              <SlideTitle>
-                {t('Control notifications', locale)}
-              </SlideTitle>
+              <SlideTitle>{t('Control notifications', locale)}</SlideTitle>
               <SlideText>
                 {t(
                   'View and control all of your unread and participating notifications',
@@ -309,9 +316,7 @@ class Login extends Component {
             </SlideNotifications>
             <SlideReposAndUsers>
               <SlideIcon name="repo" />
-              <SlideTitle>
-                {t('Repositories and Users', locale)}
-              </SlideTitle>
+              <SlideTitle>{t('Repositories and Users', locale)}</SlideTitle>
               <SlideText>
                 {t(
                   'Easily obtain repository, user and organization information',
@@ -321,9 +326,7 @@ class Login extends Component {
             </SlideReposAndUsers>
             <SlideIssuesAndPrs>
               <SlideIcon name="git-pull-request" />
-              <SlideTitle>
-                {t('Issues and Pull Requests', locale)}
-              </SlideTitle>
+              <SlideTitle>{t('Issues and Pull Requests', locale)}</SlideTitle>
               <SlideText>
                 {t(
                   'Communicate on conversations, merge pull requests and more',
@@ -349,6 +352,7 @@ class Login extends Component {
             visible={this.state.modalVisible}
           >
             <ModalWrapper>
+              <StyledSafeAreaView />
               <BrowserSection>
                 <WebView
                   source={{
